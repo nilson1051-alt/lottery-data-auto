@@ -1,0 +1,41 @@
+name: Sync Taiwan Lottery Data
+
+on:
+  schedule:
+    - cron: "30 22 * * *" # 每日 UTC 22:30 = 台灣時間 06:30
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lottery-data-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch, validate and merge official API data
+        run: python scripts/sync_lottery.py
+        env:
+          MONTHS_BACK: "36"
+      - name: Commit updated data
+        if: always()
+        run: |
+          if [[ -n "$(git status --porcelain data)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/
+            git commit -m "data: sync Taiwan lottery results"
+            git push
+          else
+            echo "No data changes."
+          fi
