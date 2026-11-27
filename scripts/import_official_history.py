@@ -46,7 +46,7 @@ def parse_zip(blob,year):
                     except (UnicodeError,LookupError): pass
             print(f"ZIP {year}: {variants!r}",flush=True)
             for label,(game,n,limit) in GAMES.items():
-                if not any(label in v and v.lower().endswith(".csv") for v in variants): continue
+                if not any(re.fullmatch(r"\s*"+re.escape(label)+r"[\s_\-]*(?:\d{2,4}(?:年度|年)?)?\.csv",v,flags=re.IGNORECASE) for v in variants): continue
                 if game in out: raise ValueError(f"duplicate CSV {year} {game}")
                 raw=z.read(f)
                 for enc in ("utf-8-sig","cp950","big5"):
