@@ -1,0 +1,293 @@
+{
+  "sources": [
+    {
+      "year": 2007,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2007.zip",
+      "sha256": "3b0ff7d3d9dfd0f6b92fa6febddfec59f3fd7d8547c669cdc669316f1e165d31",
+      "counts": {
+        "daily539": 261,
+        "lotto649": 104
+      }
+    },
+    {
+      "year": 2008,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2008.zip",
+      "sha256": "c78f812322aff459e09ad04cd343d82971f4bdbf03fc7970acdb50e158c9415e",
+      "counts": {
+        "daily539": 262,
+        "lotto649": 105,
+        "superlotto638": 98
+      }
+    },
+    {
+      "year": 2009,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2009.zip",
+      "sha256": "0bd65c6047cb2ef696d12a276a9d0b8d0567c127ea156039f2639fa9e5a80352",
+      "counts": {
+        "daily539": 261,
+        "lotto649": 104,
+        "superlotto638": 105
+      }
+    },
+    {
+      "year": 2010,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2010.zip",
+      "sha256": "044b4e87f7fd008bed342f190501c73bff09628a22b0a4240702de997f550735",
+      "counts": {
+        "daily539": 261,
+        "lotto649": 105,
+        "superlotto638": 104
+      }
+    },
+    {
+      "year": 2011,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2011.zip",
+      "sha256": "4f72371e9e9dca6cdbf9d495972558f3c60efce3303f5a5c58edffe1e91cf1a1",
+      "counts": {
+        "daily539": 313,
+        "lotto649": 104,
+        "superlotto638": 104
+      }
+    },
+    {
+      "year": 2012,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2012.zip",
+      "sha256": "01f443c120b8f0fdc23cba3022d6eece293b10f0b0d597ba981422296e92b25c",
+      "counts": {
+        "daily539": 313,
+        "lotto649": 104,
+        "superlotto638": 105
+      }
+    },
+    {
+      "year": 2013,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2013.zip",
+      "sha256": "532fa2e54689397d8128d2f04a7bbaddcf399e42b31bbf96badd7c3058d098be",
+      "counts": {
+        "daily539": 313,
+        "lotto649": 108,
+        "superlotto638": 104
+      }
+    },
+    {
+      "year": 2014,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2014.zip",
+      "sha256": "696bda9359b1aacaa7116d30ab6e1259cf6a58c346a7fe92b5a2f82bb30b1307",
+      "counts": {
+        "daily539": 313,
+        "lotto649": 108,
+        "superlotto638": 104
+      }
+    },
+    {
+      "year": 2015,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2015.zip",
+      "sha256": "68f184f4d10d864fdbdffd550eeedc37e1beb195c5bfeae5ce8a42a78d60a463",
+      "counts": {
+        "daily539": 313,
+        "lotto649": 109,
+        "superlotto638": 105
+      }
+    },
+    {
+      "year": 2016,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2016.zip",
+      "sha256": "ba40b98820ff5558560918f0b2a79c8bc0d4a7bba20d005603c13d3e3cb8bb51",
+      "counts": {
+        "daily539": 314,
+        "lotto649": 111,
+        "superlotto638": 104
+      }
+    },
+    {
+      "year": 2017,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2017.zip",
+      "sha256": "9bb4578572dde8fe86c28220d17ce8d01b6aa6f04acfef3254f013dd72557497",
+      "counts": {
+        "daily539": 312,
+        "lotto649": 108,
+        "superlotto638": 104
+      }
+    },
+    {
+      "year": 2018,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2018.zip",
+      "sha256": "0f3f117f990949994994d54cf47c99b3245451b512935f2f713e3a579c3be865",
+      "counts": {
+        "lotto649": 108,
+        "daily539": 313,
+        "superlotto638": 105
+      }
+    },
+    {
+      "year": 2019,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2019.zip",
+      "sha256": "0e76a7b4d20ce60d9ffd0492dd788ddfaec92db74f2b248755df3b1fe4727d51",
+      "counts": {
+        "lotto649": 112,
+        "daily539": 313,
+        "superlotto638": 104
+      }
+    },
+    {
+      "year": 2020,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2020.zip",
+      "sha256": "f8b47760c46e35bcf594cc8f20f33b5e12109130ca7e13cc1d81e03a428dea7b",
+      "counts": {
+        "lotto649": 112,
+        "daily539": 314,
+        "superlotto638": 105
+      }
+    },
+    {
+      "year": 2021,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2021.zip",
+      "sha256": "bea6ea8dffc7f87350596300516de436cf81ec0e0c8018379f1b9acedb5766df",
+      "counts": {
+        "lotto649": 114,
+        "daily539": 313,
+        "superlotto638": 104
+      }
+    },
+    {
+      "year": 2022,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2022.zip",
+      "sha256": "9b2aeb7762fa7bafc50ef2746f2c38917fdc9797c1aba3139fe5b6a3dc040774",
+      "counts": {
+        "lotto649": 114,
+        "daily539": 313,
+        "superlotto638": 104
+      }
+    },
+    {
+      "year": 2023,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2023.zip",
+      "sha256": "a314af9ab8ddab9dadd5180cf9a8470fa98e6140513709bda50ae7f196ba8dd4",
+      "counts": {
+        "daily539": 312,
+        "lotto649": 116,
+        "superlotto638": 104
+      }
+    },
+    {
+      "year": 2024,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2024.zip",
+      "sha256": "99cf82f42c9af775496a00e763216a1e750c788cab4ddb0a1bb8033b138fe78f",
+      "counts": {
+        "daily539": 314,
+        "lotto649": 118,
+        "superlotto638": 105
+      }
+    },
+    {
+      "year": 2025,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2025.zip",
+      "sha256": "3da4668cc0f704ad6ee59a9aeeceb9ce928e489bb94d804decc19e8d0774b086",
+      "counts": {
+        "daily539": 316,
+        "lotto649": 118,
+        "superlotto638": 104
+      }
+    },
+    {
+      "year": 2026,
+      "url": "https://cdn.taiwanlottery.com.tw/app/FilesForDownload/Download/LottoResult/2026.zip",
+      "sha256": "991936a77d1887bd709aee909787818e7f6a458b127a4b9d3c4febd99b2f8f99",
+      "counts": {
+        "daily539": 264,
+        "lotto649": 101,
+        "superlotto638": 87
+      }
+    }
+  ],
+  "games": {
+    "daily539": {
+      "count": 6030,
+      "first": {
+        "period": "096000001",
+        "date": "2007-01-01",
+        "numbers": [
+          9,
+          11,
+          27,
+          28,
+          38
+        ]
+      },
+      "last": {
+        "period": "115000286",
+        "date": "2026-11-26",
+        "numbers": [
+          12,
+          13,
+          14,
+          21,
+          36
+        ]
+      },
+      "existing_overlap": 946
+    },
+    "lotto649": {
+      "count": 2190,
+      "first": {
+        "period": "096000001",
+        "date": "2007-01-02",
+        "numbers": [
+          13,
+          21,
+          23,
+          27,
+          31,
+          49
+        ],
+        "special": 19
+      },
+      "last": {
+        "period": "115000108",
+        "date": "2026-11-24",
+        "numbers": [
+          10,
+          11,
+          23,
+          24,
+          33,
+          42
+        ],
+        "special": 40
+      },
+      "existing_overlap": 354
+    },
+    "superlotto638": {
+      "count": 1967,
+      "first": {
+        "period": "097000001",
+        "date": "2008-01-24",
+        "first_zone": [
+          3,
+          4,
+          16,
+          18,
+          36,
+          37
+        ],
+        "second_zone": 2
+      },
+      "last": {
+        "period": "115000095",
+        "date": "2026-11-26",
+        "first_zone": [
+          1,
+          14,
+          18,
+          21,
+          31,
+          35
+        ],
+        "second_zone": 1
+      },
+      "existing_overlap": 313
+    }
+  },
+  "checked_at_utc": "2026-11-27T12:04:08.785379+00:00",
+  "status": "success"
+}
