@@ -1,0 +1,63 @@
+{
+  "schema_version": "2.6",
+  "status": "success",
+  "calculated_at_utc": "2026-11-27T12:11:45.473711+00:00",
+  "sync_checked_at_utc": "2026-11-27T12:11:45.391131+00:00",
+  "games": {
+    "daily539": {
+      "count": 6030,
+      "last": {
+        "period": "115000286",
+        "date": "2026-11-26",
+        "numbers": [
+          12,
+          13,
+          14,
+          21,
+          36
+        ]
+      },
+      "source_sha256": "75ac8f067aa6ce7a54c578989498b8960a47335d10770d6ccf9845e5584aa434",
+      "stats_sha256": "41364f2438a814f2b44134493da519dfafaf6fe0ea437c004d6ac3989b5bfc55",
+      "path": "stats/daily539-stats.json"
+    },
+    "lotto649": {
+      "count": 2190,
+      "last": {
+        "period": "115000108",
+        "date": "2026-11-24",
+        "numbers": [
+          10,
+          11,
+          23,
+          24,
+          33,
+          42
+        ],
+        "special": 40
+      },
+      "source_sha256": "f2a45995f6a19b131ebfc56ad72e78eea708fb347d8981d795129640519c98d7",
+      "stats_sha256": "3e778253e3b404daaf44cc8ad14b9e83cff4c0ab04117cf5b67e7de7a498a8f6",
+      "path": "stats/lotto649-stats.json"
+    },
+    "superlotto638": {
+      "count": 1967,
+      "last": {
+        "period": "115000095",
+        "date": "2026-11-26",
+        "first_zone": [
+          1,
+          14,
+          18,
+          21,
+          31,
+          35
+        ],
+        "second_zone": 1
+      },
+      "source_sha256": "5ad5140f130457c7e3947f3a3f75182e93c63196f95f59e3d6a2d1f4a3a32353",
+      "stats_sha256": "f6a6f12d00688054538af2d67146bd1c5d69f8be3eb44f20e43168a882e0b2ed",
+      "path": "stats/superlotto638-stats.json"
+    }
+  }
+}
