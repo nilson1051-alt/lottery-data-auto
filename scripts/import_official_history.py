@@ -38,9 +38,15 @@ def parse_zip(blob,year):
     out={}
     with zipfile.ZipFile(io.BytesIO(blob)) as z:
         for f in z.infolist():
-            name=Path(f.filename).name
+            name=Path(f.filename.replace("\\","/")).name
+            variants=[name]
+            if not f.flag_bits & 0x800:
+                for enc in ("cp950","big5","utf-8","gb18030"):
+                    try: variants.append(name.encode("cp437").decode(enc))
+                    except (UnicodeError,LookupError): pass
+            print(f"ZIP {year}: {variants!r}",flush=True)
             for label,(game,n,limit) in GAMES.items():
-                if not name.startswith(label+"_") or not name.lower().endswith(".csv"): continue
+                if not any(label in v and v.lower().endswith(".csv") for v in variants): continue
                 if game in out: raise ValueError(f"duplicate CSV {year} {game}")
                 raw=z.read(f)
                 for enc in ("utf-8-sig","cp950","big5"):
@@ -85,6 +91,7 @@ def main():
         old=json.loads((root/f"{g}.json").read_text(encoding="utf-8"))
         if not isinstance(old,list) or not old: raise ValueError(f"invalid existing {g}")
         seen=set()
+        archive_periods=set(rows)
         for item in old:
             validate(g,item)
             p=item["period"]
@@ -100,7 +107,7 @@ def main():
             if sorted(seq)!=list(range(1,max(seq)+1)): raise ValueError(f"missing periods {g} ROC {y}")
         expected_years=set(range(2008 if g=="superlotto638" else 2007,date.today().year+1))
         if {int(y)+1911 for y in years}!=expected_years: raise ValueError(f"missing years {g}")
-        report["games"][g]={"count":len(result),"first":result[0],"last":result[-1],"existing_overlap":len(seen & set(rows))}
+        report["games"][g]={"count":len(result),"first":result[0],"last":result[-1],"existing_overlap":len(seen & archive_periods)}
         merged[g]=result
     report["checked_at_utc"]=datetime.now(timezone.utc).isoformat()
     report["status"]="success"
