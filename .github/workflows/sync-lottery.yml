@@ -4,7 +4,7 @@ on:
     - cron: "30 22 * * *" # Taiwan 06:30
   workflow_dispatch:
   push:
-    branches: [main, upgrade-v2.6]
+    branches: [main]
     paths:
       - '.github/workflows/sync-lottery.yml'
       - 'scripts/sync_lottery.py'
@@ -18,7 +18,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   sync:
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/upgrade-v2.6'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
