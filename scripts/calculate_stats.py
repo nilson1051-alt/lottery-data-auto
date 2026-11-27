@@ -6,7 +6,10 @@ from itertools import combinations
 from datetime import datetime, timezone
 from pathlib import Path
 from sync_lottery import index_rows, validate_sequence, encode, digest, TZ
-CONFIG={"daily539":("numbers",39,400),"lotto649":("numbers",49,240),"superlotto638":("first_zone",38,None)}
+CONFIG={"daily539":("numbers",39,400),"lotto649":("numbers",49,240),"superlotto638":("first_zone",38,240)}
+SUPERLOTTO_SECOND_HALF_LIFE=240
+LIFT_HIGH_THRESHOLD=1.20
+LIFT_MIN_PAIR_COUNT=30
 def percentile(values,p):
     v=sorted(values)
     if not v:return None
@@ -46,10 +49,16 @@ def statistics(draws,maximum,half_life=None,coverage=.65,recent=30,pairs=True):
     extreme=sorted(n for n,s in skips.items() if s>=q["P90"])
     core=sorted(set(hot)&set(active)-set(extreme)) if hot is not None else None
     satellite=sorted((set(semi)|set(cold))-set(extreme)-set(core or []))
-    lifts=None
+    lifts=None; high_pairs=None; triangles=None
     if pairs:
         lifts={f"{a}-{b}":{"count":pair_counts[a,b],"lift":total*pair_counts[a,b]/(history[a]*history[b]) if history[a]*history[b] else None} for a,b in combinations(range(1,maximum+1),2)}
-    return {"sample_count":total,"recent_sample_count":min(total,recent),"half_life":half_life,"coverage_target":coverage if half_life is not None else None,"coverage_actual":actual,"numbers":numbers,"skip_percentiles":q,"skip_sample_count":len(skips),"hot":hot,"weighted_top15":top15,"active":active,"semi_active":semi,"moderate_cold":cold,"extreme_cold":extreme,"core":core,"satellite":satellite,"pair_lift":lifts,"lift_high_threshold":None}
+        high_pairs=[]
+        for key,record in lifts.items():
+            record["high"]=record["lift"] is not None and record["lift"]>=LIFT_HIGH_THRESHOLD and record["count"]>=LIFT_MIN_PAIR_COUNT
+            if record["high"]:high_pairs.append(key)
+        edges={tuple(map(int,key.split("-"))) for key in high_pairs}
+        triangles=[list(t) for t in combinations(range(1,maximum+1),3) if all(edge in edges for edge in combinations(t,2))]
+    return {"sample_count":total,"recent_sample_count":min(total,recent),"half_life":half_life,"coverage_target":coverage if half_life is not None else None,"coverage_actual":actual,"numbers":numbers,"skip_percentiles":q,"skip_sample_count":len(skips),"hot":hot,"weighted_top15":top15,"active":active,"semi_active":semi,"moderate_cold":cold,"extreme_cold":extreme,"core":core,"satellite":satellite,"pair_lift":lifts,"lift_high_threshold":LIFT_HIGH_THRESHOLD if pairs else None,"lift_min_pair_count":LIFT_MIN_PAIR_COUNT if pairs else None,"high_lift_pairs":high_pairs,"strong_triangles":triangles,"max_high_lift_pairs_per_set":1 if pairs else None,"exclude_strong_triangles":True if pairs else None}
 def build(game,rows,source_hash):
     field,maximum,half=CONFIG[game]
     draws=[r[field] for r in rows]
@@ -57,8 +66,8 @@ def build(game,rows,source_hash):
     distributions={}
     for nums in draws:
         for k,v in structure(nums,maximum).items():distributions.setdefault(k,Counter())[v]+=1
-    result={"schema_version":"2.6","game":game,"source_sha256":source_hash,"first":rows[0],"last":rows[-1],"main":stats,"structure_histograms":{k:dict(sorted(v.items())) for k,v in distributions.items()},"latest_structure":structure(draws[-1],maximum),"method":{"percentile":"linear interpolation across current known number skips","coverage_target":.65,"recent":30,"tie_break":"number ascending","lift_threshold":"not specified in original rules","interpretation":"descriptive only"}}
-    if game=="superlotto638":result["second_zone"]=statistics([[r["second_zone"]] for r in rows],8,None,pairs=False)
+    result={"schema_version":"2.6","game":game,"source_sha256":source_hash,"first":rows[0],"last":rows[-1],"main":stats,"structure_histograms":{k:dict(sorted(v.items())) for k,v in distributions.items()},"latest_structure":structure(draws[-1],maximum),"method":{"percentile":"linear interpolation across current known number skips","coverage_target":.65,"recent":30,"tie_break":"number ascending","lift_threshold":LIFT_HIGH_THRESHOLD,"lift_min_pair_count":LIFT_MIN_PAIR_COUNT,"lift_formula":"N * count_ab / (count_a * count_b)","lift_window":"all verified draws","lift_parameters":"v2.6 defaults, not backtested","interpretation":"descriptive only"}}
+    if game=="superlotto638":result["second_zone"]=statistics([[r["second_zone"]] for r in rows],8,SUPERLOTTO_SECOND_HALF_LIFE,pairs=False)
     if game=="lotto649":result["special"]=statistics([[r["special"]] for r in rows],49,None,pairs=False)
     return result
 def main():
