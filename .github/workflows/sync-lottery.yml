@@ -9,6 +9,8 @@ on:
       - '.github/workflows/sync-lottery.yml'
       - 'scripts/sync_lottery.py'
       - 'scripts/test_sync_lottery.py'
+      - 'scripts/calculate_stats.py'
+      - 'scripts/test_calculate_stats.py'
 permissions:
   contents: write
 concurrency:
@@ -25,21 +27,24 @@ jobs:
         with:
           python-version: '3.12'
       - name: Run safety regression tests
-        run: python -m unittest discover -s scripts -p 'test_sync_lottery.py' -v
+        run: python -m unittest discover -s scripts -p 'test_*.py' -v
       - name: Fetch and validate incremental official data
         id: sync
         run: python scripts/sync_lottery.py
         env:
           MONTHS_BACK: '2'
+      - name: Calculate verified statistics
+        id: stats
+        run: python scripts/calculate_stats.py
       - name: Publish verified snapshot or failure status only
-        if: always() && (steps.sync.outcome == 'success' || steps.sync.outcome == 'failure')
+        if: always() && (steps.stats.outcome == 'success' || steps.sync.outcome == 'failure')
         env:
           SYNC_OUTCOME: ${{ steps.sync.outcome }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if [[ "$SYNC_OUTCOME" == "success" ]]; then
-            git add data/daily539.json data/lotto649.json data/superlotto638.json data/sync-status.json
+            git add data/daily539.json data/lotto649.json data/superlotto638.json data/sync-status.json stats/
           else
             git add data/sync-status.json
           fi
