@@ -1,8 +1,8 @@
 {
   "schema_version": "2.6",
   "status": "success",
-  "calculated_at_utc": "2026-11-27T12:36:37.200766+00:00",
-  "sync_checked_at_utc": "2026-11-27T12:36:37.113152+00:00",
+  "calculated_at_utc": "2026-11-27T12:39:21.823500+00:00",
+  "sync_checked_at_utc": "2026-11-27T12:39:21.745575+00:00",
   "games": {
     "daily539": {
       "count": 6030,
