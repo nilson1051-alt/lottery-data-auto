@@ -4,7 +4,7 @@ on:
     - cron: "30 22 * * *" # Taiwan 06:30
   workflow_dispatch:
   push:
-    branches: [upgrade-v2.6]
+    branches: [main, upgrade-v2.6]
     paths:
       - '.github/workflows/sync-lottery.yml'
       - 'scripts/sync_lottery.py'
