@@ -1,13 +1,13 @@
 {
   "schema_version": "2.6",
-  "checked_at_utc": "2026-11-27T12:39:21.745575+00:00",
+  "checked_at_utc": "2026-11-28T04:01:58.349575+00:00",
   "status": "success",
   "months_requested": 2,
   "failures": [],
   "games": {
     "daily539": {
-      "count": 6030,
-      "added": 0,
+      "count": 6031,
+      "added": 1,
       "overlap_verified": 49,
       "months": [
         "2026-10",
@@ -25,22 +25,22 @@
         ]
       },
       "last": {
-        "period": "115000286",
-        "date": "2026-11-26",
+        "period": "115000287",
+        "date": "2026-11-27",
         "numbers": [
-          12,
-          13,
-          14,
+          8,
           21,
-          36
+          28,
+          35,
+          39
         ]
       },
-      "sha256": "75ac8f067aa6ce7a54c578989498b8960a47335d10770d6ccf9845e5584aa434",
-      "expected_latest_minimum": "2026-11-26"
+      "sha256": "abeb2f3995fb10b49fa010cad9d85dba95c8b83627fa21c689fd085e3dc5f83c",
+      "expected_latest_minimum": "2026-11-27"
     },
     "lotto649": {
-      "count": 2190,
-      "added": 0,
+      "count": 2191,
+      "added": 1,
       "overlap_verified": 16,
       "months": [
         "2026-10",
@@ -60,20 +60,20 @@
         "special": 19
       },
       "last": {
-        "period": "115000108",
-        "date": "2026-11-24",
+        "period": "115000109",
+        "date": "2026-11-27",
         "numbers": [
-          10,
           11,
-          23,
-          24,
-          33,
-          42
+          20,
+          27,
+          32,
+          37,
+          47
         ],
-        "special": 40
+        "special": 30
       },
-      "sha256": "f2a45995f6a19b131ebfc56ad72e78eea708fb347d8981d795129640519c98d7",
-      "expected_latest_minimum": "2026-11-24"
+      "sha256": "89a25151dfffe6bcf8f25bfe53b09023f3cd9d99cb5e4a73f9a3102f93ae3912",
+      "expected_latest_minimum": "2026-11-27"
     },
     "superlotto638": {
       "count": 1967,
